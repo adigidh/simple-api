@@ -94,7 +94,17 @@ release:
     source $WORKSPACE/$PIPELINE_CONFIG_REPO_PATH/scripts/release.sh
 
 dynamic-scan:
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
   skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
 
 owasp-zap:
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
   skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
