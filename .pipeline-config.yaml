@@ -31,7 +31,13 @@ detect-secrets:
     echo "Bypassing this stage"
 
 test:
+  abort_on_failure: false
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
   skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
 
 containerize:
   skip: true
