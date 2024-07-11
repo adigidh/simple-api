@@ -16,6 +16,20 @@ setup:
       source $WORKSPACE/$PIPELINE_CONFIG_REPO_PATH/scripts/setup.sh
     fi
 
+peer-review:
+  skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
+
+detect-secrets:
+  skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
+
 test:
   skip: true
 
