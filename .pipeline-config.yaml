@@ -1,0 +1,55 @@
+preprocessor_version: "latest"
+version: "1"
+
+setup:
+  dind: true
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
+  script: |
+    #!/usr/bin/env bash
+
+    if [[ "$PIPELINE_DEBUG" == 1 ]]; then
+      trap env EXIT
+      env
+      set -x
+    fi
+    if [[ "$(get_env pipeline_namespace)" == *"pr"* ||  "$(get_env pipeline_namespace)" == *"ci"* ]]; then
+      source $WORKSPACE/$PIPELINE_CONFIG_REPO_PATH/scripts/setup.sh
+    fi
+
+test:
+  skip: true
+
+containerize:
+  skip: true
+
+sign-artifact:
+  skip: true
+
+scan-artifact:
+  skip: true
+
+deploy:
+  skip: true
+
+acceptance-test:
+  skip: true
+
+release:
+  abort_on_failure: false
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
+  script: |
+    #!/usr/bin/env bash
+
+    if [[ "$PIPELINE_DEBUG" == 1 ]]; then
+      trap env EXIT
+      env
+      set -x
+    fi
+
+    source $WORKSPACE/$PIPELINE_CONFIG_REPO_PATH/scripts/release.sh
+
+dynamic-scan:
+  skip: true
+
+owasp-zap:
+  skip: true
