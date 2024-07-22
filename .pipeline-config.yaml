@@ -16,20 +16,6 @@ setup:
       source $WORKSPACE/$PIPELINE_CONFIG_REPO_PATH/scripts/setup.sh
     fi
 
-peer-review:
-  skip: true
-  script: |
-    #!/usr/bin/env bash
-
-    echo "Bypassing this stage"
-
-detect-secrets:
-  skip: true
-  script: |
-    #!/usr/bin/env bash
-
-    echo "Bypassing this stage"
-
 test:
   abort_on_failure: false
   image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
