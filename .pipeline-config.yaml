@@ -23,23 +23,63 @@ peer-review:
 
     echo "Bypassing this stage"
 
-test:
+detect-secrets:
   skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
+
+test:
+  abort_on_failure: false
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
+  skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
 
 containerize:
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
   skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
 
 sign-artifact:
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
   skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
 
 scan-artifact:
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
   skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
 
 deploy:
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
   skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
 
 acceptance-test:
+  image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
   skip: true
+  script: |
+    #!/usr/bin/env bash
+
+    echo "Bypassing this stage"
+
+
 release:
   abort_on_failure: false
   image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
